@@ -1,0 +1,33 @@
+@{
+    //
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    // Anything in between these two curly braces will be handled by 
+    // the razor templating engine
+    // basically you can put almost any C# code in here and expect it to work
+    // Observe
+
+    string test = "Obi Wan Kenobi";
+    string test2 = "Order 66 ";
+    string newString = String.Format("{0} {1}", test, test2);
+
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>Star Wars!!</h1>
+<h2>@newString</h2>
+<p>
+    After looking deeper into the Siths emperor plans,
+    I have found something called order 66, should look
+    further into it before doing anything that may harm
+    the relationships.
+</p>
+<section class="posts">
+	@foreach (var post in Model){
+        <div class="post">
+            <h2>@post.Title</h2>
+            <p>@post.Excerpt</p>
+            <a href="/post/@post.Title.Replace(' ','-')">read more</a>
+        </div>
+    }
+</section>
